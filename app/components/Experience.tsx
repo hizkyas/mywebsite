@@ -33,7 +33,7 @@ const experiences = [
     role: "Software Developer",
     company: "Early Career",
     location: "Ethiopia",
-    period: "2021 – 2022",
+    period: "2021 – present",
     achievements: [
       "Built full-stack web applications using React, Next.js, and FastAPI",
       "Developed RESTful APIs and integrated third-party services",
