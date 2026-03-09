@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030712;
+  --foreground: #f3f4f6;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.4);
+  --card-bg: rgba(17, 24, 39, 0.7);
+  --card-border: rgba(55, 65, 81, 0.5);
+  --text-muted: #9ca3af;
+  --text-secondary: #d1d5db;
+  --gradient-start: #3b82f6;
+  --gradient-mid: #8b5cf6;
+  --gradient-end: #ec4899;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ===== Base ===== */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Glassmorphism Card ===== */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+}
+
+.glass-card:hover {
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 30px var(--accent-glow), inset 0 0 30px rgba(59, 130, 246, 0.05);
+}
+
+/* ===== Animated Grid Background ===== */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ===== Floating Orbs ===== */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: orbFloat 12s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-start);
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: var(--gradient-mid);
+  top: 50%;
+  right: -80px;
+  animation-delay: -4s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: var(--gradient-end);
+  bottom: -50px;
+  left: 30%;
+  animation-delay: -8s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* ===== Skill Progress Bar ===== */
+.skill-bar-track {
+  background: rgba(55, 65, 81, 0.5);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Timeline ===== */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-mid), transparent);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 13px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gradient-start);
+  border: 3px solid var(--background);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ===== Badge ===== */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ===== Section Divider ===== */
+.section-divider {
+  width: 60px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
+  margin: 0 auto;
+}
+
+/* ===== Glow Button ===== */
+.glow-btn {
+  position: relative;
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.glow-btn-primary {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+  color: white;
+}
+
+.glow-btn-primary:hover {
+  box-shadow: 0 0 30px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.glow-btn-outline {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+}
+
+.glow-btn-outline:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ===== Form Inputs ===== */
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ===== Mobile Menu ===== */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu-enter {
+  animation: slideDown 0.3s ease forwards;
+}
