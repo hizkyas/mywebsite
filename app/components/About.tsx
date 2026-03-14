@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, GraduationCap, Shield, Brain } from "lucide-react";
+import { Award, GraduationCap, Shield, Brain, Cloud } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const skills = [
@@ -40,6 +40,11 @@ const certifications = [
     icon: Shield,
     title: "Zero Trust Security Certification",
     issuer: "Cybersecurity Institute",
+  },
+  {
+    icon: Cloud,
+    title: "AWS Technical Essentials",
+    issuer: "Amazon Web Services",
   },
 ];
 

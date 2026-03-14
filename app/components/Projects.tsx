@@ -36,6 +36,26 @@ const projects = [
     image: "/projects/pdf-ai.webp",
     color: "from-purple-500/20 to-pink-500/20",
   },
+  {
+    emoji: "📊",
+    title: "Job Market Analysis",
+    description:
+      "Comprehensive data analysis project examining job market trends, in-demand skills, salary distributions, and hiring patterns across tech roles. Provides actionable insights for job seekers and employers through interactive visualizations.",
+    techStack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter"],
+    github: "https://github.com/hizkyas/job-market-analysis",
+    image: "/projects/job-market.webp",
+    color: "from-green-500/20 to-teal-500/20",
+  },
+  {
+    emoji: "💳",
+    title: "Credit Risk ML Pipeline",
+    description:
+      "End-to-end machine learning pipeline for credit risk assessment and loan default prediction. Implements feature engineering, model training, evaluation, and deployment-ready scoring system for financial institutions.",
+    techStack: ["Python", "Scikit-learn", "XGBoost", "Pandas", "MLflow"],
+    github: "https://github.com/hizkyas/credit-risk-ml-pipeline",
+    image: "/projects/credit-risk.webp",
+    color: "from-orange-500/20 to-red-500/20",
+  },
 ];
 
 const cardVariants = {
